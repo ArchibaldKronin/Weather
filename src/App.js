@@ -1,25 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import { getData, getDaysTimeline, getHoursTimeline, getTodauHourWeather, getValues, getThreeDaysInterval, getTomorrowInterval, getWeatherState } from './functions/getData';
+import { WEATHER_CONSTANTS } from "./constants/weatherConstants";
+import { serverResponseObj } from './example';
+import React, { Component } from 'react';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { WeatherMainPage } from './components/WeatherMainPage/WeatherMainPage';
+import { urlRequest } from './constants/requestConstants';
+
+// const data = getData(urlRequest);
+// console.log(data);
+
+// let test = getInitialState(serverResponseObj);
+// console.log(test);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className='bodyDiv'>
+        <header>
+          Це заголовок в нем логотип
+          <nav className='navClass'>
+            <ul>
+              <li>
+                <NavLink to='/weather'>Weather</NavLink>
+              </li>
+              <li>
+                <NavLink to='/contacts'>Contacts</NavLink>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main>
+          <Routes>
+            <Route path='/weather' element={<WeatherMainPage />} />
+            <Route path='/contacts' element={<div>Тут контакты</div>} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+
