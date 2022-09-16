@@ -6,15 +6,7 @@ import { urlRequestToday, urlRequestTomorrow, urlRequestThreeDays } from '../../
 import { serverResponseObj } from '../../example';
 import { getData, getWeatherState } from '../../functions/getData';
 
-//Добавь useSelect export const selectTodos = (state) => state.todos.todos;
 export const selectWeather = (state) => ( state.weather);
-
-// const response = getData(urlRequest);
-
-// const initialState = getInitialState(response);
-
-// const {weather} = store.getState();
-// console.log(weather);
 
 export const loadedWeather = createAsyncThunk('weather/loadedWeather', async (url, { rejectWithValue }) => {
     try {
@@ -26,10 +18,6 @@ export const loadedWeather = createAsyncThunk('weather/loadedWeather', async (ur
 
 const initialState = {
     dateToShowWeather: DATE_TO_SHOW_WEATHER.TODAY,
-    // weather: '',
-    // status: REQUEST_STATUS.PENDING,
-    // error: null,
-    // startTime: moment(),
 }
 
 const weatherSlice = createSlice({

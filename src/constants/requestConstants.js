@@ -18,20 +18,15 @@ const fields = [
   "cloudCeiling",
   "weatherCode",
 ];
-const units = "imperial";
+const units = "metric";
 let timesteps = ["1h"];
 
 const now = moment();
 let startTime = moment(now).add(0, "minutes").toISOString();
-// console.log(startTime)
-// console.log(startTime);
 
-// const nowDate = moment().endOf('day').toISOString();
-// console.log(nowDate);
-// let endTime = moment().endOf('day').fromNow();
-// console.log(endTime);
-let endTime = moment().endOf('day').toISOString();
-
+// let lastHourMoment = moment(23, 'HH');
+// startTime = (startTime < lastHourMoment) ? startTime.toISOString() : lastHourMoment.subtract(1, 'minutes').toISOString();
+let endTime = moment().endOf('day').add(1,'hour').toISOString();
 
 const timezone = "Europe/Moscow";
 
