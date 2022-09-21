@@ -1,11 +1,8 @@
 import './App.css';
-import { getData, getDaysTimeline, getHoursTimeline, getTodauHourWeather, getValues, getThreeDaysInterval, getTomorrowInterval, getWeatherState } from './functions/getData';
 import { WEATHER_CONSTANTS } from "./constants/weatherConstants";
-import { serverResponseObj } from './example';
 import React, { Component } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import { WeatherMainPage } from './components/WeatherMainPage/WeatherMainPage';
-import { urlRequest } from './constants/requestConstants';
 
 // const data = getData(urlRequest);
 // console.log(data);

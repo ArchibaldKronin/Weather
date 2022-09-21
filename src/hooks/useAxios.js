@@ -1,35 +1,34 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { getURL } from "../functions/getData";
 import { REQUEST_STATUS } from "../constants/internalConstants";
 import { changedTimer, timerCanceled, timerStarted } from "../store/refreshSlice/refreshSlice";
+import { getWeatherObjects } from "../functions/getWeatherObject";
+import { transformStartTime } from "../functions/transformStartTime";
 
 export const useAxios = (initialValue, url, selectorsArray) => {
 
     const dispatch = useDispatch();
 
     initialValue = checkInitialState(initialValue);
+    const [dateToShowWeather] = selectorsArray
     const [state, setState] = useState(initialValue);
-
     useEffect(() => {
-        // debugger
         dispatch(timerCanceled());
-
-        console.log(url);
-
         const loadData = async () => {
             setState({ ...state, status: REQUEST_STATUS.PENDING });
             try {
                 const { data } = await axios.get(url);
-                setState({ ...state, data: data, status: REQUEST_STATUS.FULFILLED });
-                // debugger
+                const weatherObjectsArray = getWeatherObjects(data);
+                const weatherObjectsWithTime = transformStartTime(weatherObjectsArray, dateToShowWeather);
+                setState({ ...state, data: weatherObjectsWithTime, status: REQUEST_STATUS.FULFILLED });
                 dispatch(changedTimer());
             }
-            catch (err) { 
-                console.log(err); 
-                dispatch(changedTimer());;
-                setState({ ...state, error: err.message, status: REQUEST_STATUS.ERROR }) }
+            catch (err) {
+                console.log(err);
+                dispatch(changedTimer());
+                setState({ ...state, error: err.message, status: REQUEST_STATUS.ERROR })
+            }
         }
         loadData();
     }, selectorsArray);
@@ -52,3 +51,6 @@ const checkInitialState = (obj) => {
         return { data: null, status: REQUEST_STATUS.PENDING, error: null, }
     }
 }
+
+
+

@@ -43,7 +43,7 @@ export const startedTimer = createAsyncThunk('refresh/startedTimer', async (_, {
             dispatch(changedTimer());
             console.log('jjj')
             dispatch(changedFlagUseEffect());
-        }, 20000);
+        }, 3600000);
         return refreshTimer;
     }
 

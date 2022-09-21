@@ -1,20 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import moment from 'moment';
+import { createSlice } from '@reduxjs/toolkit';
 import { DATE_TO_SHOW_WEATHER, REQUEST_STATUS } from '../../constants/internalConstants';
-import { urlRequestToday, urlRequestTomorrow, urlRequestThreeDays } from '../../constants/requestConstants';
-import { serverResponseObj } from '../../example';
-import { getData, getWeatherState } from '../../functions/getData';
 
-export const selectWeather = (state) => ( state.weather);
-
-export const loadedWeather = createAsyncThunk('weather/loadedWeather', async (url, { rejectWithValue }) => {
-    try {
-        const weatherData = getData(url);
-        return weatherData;
-    }
-    catch (err) { return rejectWithValue(err) }
-})
+export const selectWeather = (state) => (state.weather);
 
 const initialState = {
     dateToShowWeather: DATE_TO_SHOW_WEATHER.TODAY,
@@ -24,12 +11,6 @@ const weatherSlice = createSlice({
     name: 'weather',
     initialState,
     reducers: {
-        dataRefreshed(state, action) {
-            state.status = 'jopa';
-        },
-        setedStartTime(state, action) {
-            state.startTime = action.payload;
-        },
         clickedToday(state, action) {
             state.dateToShowWeather = DATE_TO_SHOW_WEATHER.TODAY;
         },
@@ -40,31 +21,9 @@ const weatherSlice = createSlice({
             state.dateToShowWeather = DATE_TO_SHOW_WEATHER.THREE_DAYS;
         },
     },
-    extraReducers: (builder) => {
-        builder
-            .addCase(loadedWeather.pending, (state, action) => {
-                state.status = REQUEST_STATUS.PENDING;
-            })
-            .addCase(loadedWeather.fulfilled, (state, action) => {
-                state.status = REQUEST_STATUS.FULFILLED;
-                const {startTime,todayWeather,tomorrowWeather,threeDaysWeather,status,error} = getWeatherState(action.payload);
-                // state = getWeatherState(action.payload);
-                // debugger
-                state.startTime = startTime;
-                state.todayWeather = todayWeather;
-                state.tomorrowWeather = tomorrowWeather;
-                state.threeDaysWeather = threeDaysWeather;
-                state.status = status;
-                state.error = error;
-            })
-            .addCase(loadedWeather.rejected, (state, action) => {
-                state.error = action.error;
-                state.status = REQUEST_STATUS.ERROR;
-            })
-    }
 })
 
-export const { dataRefreshed, setedStartTime, clickedThreeDays, clickedToday, clickedTomorrow } = weatherSlice.actions;
+export const { clickedThreeDays, clickedToday, clickedTomorrow } = weatherSlice.actions;
 
 export const weatherReducer = weatherSlice.reducer;
 

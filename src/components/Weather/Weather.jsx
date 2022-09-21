@@ -1,13 +1,22 @@
 import React, { Children, useState } from "react";
-import { DATE_TO_SHOW_WEATHER } from "../../constants/internalConstants";
 
-export const Weather = (props) => {
-
-    // const [dateToShow, setDateToShow] = useState(DATE_TO_SHOW_WEATHER.TODAY)
+export const Weather = ({ data }) => {
 
     return (
-        <>
-        <p>{props.children}</p>
-        </>
+        <div>
+            {data.map(interval => {
+                return (
+                    <div key={interval.startTime}>
+                        <h3>{interval.startTime}</h3>
+                        <h4>{interval.weatherCode}</h4>
+                        <p>{`Облачность: ${interval.weatherValues.cloudCover}%`}</p>
+                        <p>{`Температура: ${interval.weatherValues.temperature} градусов Цельсия`}</p>
+                        <p>{`Скорость ветра: ${interval.weatherValues.windSpeed} м/с`}</p>
+                    </div>
+                )
+
+            }
+            )}
+        </div>
     )
 }
