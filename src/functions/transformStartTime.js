@@ -1,4 +1,3 @@
-// import moment from 'moment';
 import { DATE_TO_SHOW_WEATHER, MONTHS } from '../constants/internalConstants';
 
 export const transformStartTime = (weatherObjectsArray, currentDateSelector) => {

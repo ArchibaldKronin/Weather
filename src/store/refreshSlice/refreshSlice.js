@@ -26,11 +26,6 @@ const refreshSlice = createSlice({
             state.refreshFlagForUseEffect = !state.refreshFlagForUseEffect;
         }
     },
-    extraReducers: (builder) => {
-        builder
-            .addCase(startedTimer.fulfilled, (state, action) => {
-            })
-    }
 });
 
 export const { changedTimer, timerCanceled, timerStarted, changedFlagUseEffect } = refreshSlice.actions;

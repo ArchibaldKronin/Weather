@@ -13,7 +13,7 @@ import { Weather } from "../Weather/Weather";
 export const WeatherMainPage = (props) => {
     const dispatch = useDispatch();
 
-    const { dateToShowWeather } = useSelector(selectWeather);
+    const { dateToShowWeather, refreshButtonFlag } = useSelector(selectWeather);
     const { refreshFlagForTimer, refreshFlagForUseEffect } = useSelector(selectRefresh)
 
     useEffect(() => {
@@ -27,7 +27,7 @@ export const WeatherMainPage = (props) => {
         data: null,
         status: REQUEST_STATUS.PENDING,
         error: null,
-    }, getURL(dateToShowWeather), [dateToShowWeather, refreshFlagForUseEffect])
+    }, getURL(dateToShowWeather), [dateToShowWeather, refreshFlagForUseEffect, refreshButtonFlag])
 
     const handleTodayClick = () => { dispatch(clickedToday()); console.log(state)  }
 

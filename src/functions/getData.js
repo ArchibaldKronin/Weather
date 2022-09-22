@@ -1,8 +1,6 @@
-import { getType } from '@reduxjs/toolkit';
-import axios from 'axios';
 import moment from 'moment';
 import queryString from 'query-string';
-import { DATE_TO_SHOW_WEATHER, REQUEST_STATUS } from '../constants/internalConstants';
+import { DATE_TO_SHOW_WEATHER } from '../constants/internalConstants';
 
 export const getURL = (dateToShow) => {
     switch (dateToShow) {

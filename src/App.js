@@ -4,12 +4,6 @@ import React, { Component } from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import { WeatherMainPage } from './components/WeatherMainPage/WeatherMainPage';
 
-// const data = getData(urlRequest);
-// console.log(data);
-
-// let test = getInitialState(serverResponseObj);
-// console.log(test);
-
 function App() {
   return (
     <BrowserRouter>

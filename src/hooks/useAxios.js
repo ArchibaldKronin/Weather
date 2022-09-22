@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "axios";
-import { REQUEST_STATUS } from "../constants/internalConstants";
+import { DATE_TO_SHOW_WEATHER, REQUEST_STATUS } from "../constants/internalConstants";
 import { changedTimer, timerCanceled, timerStarted } from "../store/refreshSlice/refreshSlice";
 import { getWeatherObjects } from "../functions/getWeatherObject";
 import { transformStartTime } from "../functions/transformStartTime";
@@ -20,7 +20,8 @@ export const useAxios = (initialValue, url, selectorsArray) => {
             try {
                 const { data } = await axios.get(url);
                 const weatherObjectsArray = getWeatherObjects(data);
-                const weatherObjectsWithTime = transformStartTime(weatherObjectsArray, dateToShowWeather);
+                let weatherObjectsWithTime = transformStartTime(weatherObjectsArray, dateToShowWeather);
+                weatherObjectsWithTime = correctTommorowData(weatherObjectsWithTime);
                 setState({ ...state, data: weatherObjectsWithTime, status: REQUEST_STATUS.FULFILLED });
                 dispatch(changedTimer());
             }
@@ -34,6 +35,13 @@ export const useAxios = (initialValue, url, selectorsArray) => {
     }, selectorsArray);
 
     return { state, setState };
+
+    function correctTommorowData(data) {
+        if (dateToShowWeather === DATE_TO_SHOW_WEATHER.TOMORROW) {
+            data.splice(1, 1)
+        }
+        return data;
+    }
 }
 
 const isObject = (obj) => {
@@ -51,6 +59,8 @@ const checkInitialState = (obj) => {
         return { data: null, status: REQUEST_STATUS.PENDING, error: null, }
     }
 }
+
+
 
 
 
