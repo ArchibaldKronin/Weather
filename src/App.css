@@ -1,4 +1,203 @@
-.App {
+.wrapper {
+  width: 1440px;
+  height: 1280px;
+  position: relative;
+  background-color: #1B262C;
+  z-index: -100;
+}
+
+.ellipse1 {
+  position: absolute;
+  width: 571px;
+  height: 571px;
+  left: -351px;
+  top: -234px;
+
+  background: radial-gradient(87.48% 87.48% at 49.91% 49.91%, rgba(77, 125, 152, 0.3) 0%, rgba(73, 101, 117, 0) 100%);
+  filter: blur(60px);
+}
+
+.ellipse2 {
+  position: absolute;
+  width: 571px;
+  height: 571px;
+  left: -395px;
+  top: 237px;
+
+  background: radial-gradient(87.48% 87.48% at 49.91% 49.91%, rgba(77, 125, 152, 0.3) 0%, rgba(73, 101, 117, 0) 100%);
+  filter: blur(60px);
+}
+
+.ellipse3 {
+  position: absolute;
+  width: 634px;
+  height: 749px;
+  left: 806px;
+  top: -560px;
+
+  background: rgba(77, 125, 152, 0.2);
+  filter: blur(70px);
+}
+
+.ellipse4 {
+  position: absolute;
+  width: 173px;
+  height: 749px;
+  left: 1267px;
+  top: 112px;
+
+  background: rgba(77, 125, 152, 0.2);
+  filter: blur(70px);
+}
+
+.linesGroup1 {
+  position: absolute;
+  width: 966px;
+  height: 629.8px;
+  left: -122px;
+  top: -315px;
+  /* z-index: -1; */
+}
+
+.linesGroup2 {
+  position: absolute;
+  width: 1476px;
+  height: 463px;
+  left: -165.43px;
+  top: 574px;
+
+  /* transform: rotate(31.6deg); */
+  /* z-index: -1; */
+
+
+}
+
+.linesGroup3 {
+  position: absolute;
+  width: 1476px;
+  height: 463px;
+  left: 536px;
+  top: 718.86px;
+
+  /* transform: rotate(-31.85deg); */
+  /* z-index: -1; */
+
+}
+
+.linesGroup4 {
+  position: absolute;
+  width: 1476px;
+  height: 463px;
+  left: 511.31px;
+  top: 1176.17px;
+
+  /* transform: rotate(-131.05deg); */
+  /* z-index: -1; */
+
+}
+
+.linesGroup5 {
+  position: absolute;
+  width: 984.26px;
+  height: 670.83px;
+  left: 382px;
+  top: 190.13px;
+
+  /* transform: rotate(-31.83deg); */
+  /* z-index: -1; */
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url(./fonts/Poppins-Bold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(./fonts/Poppins-Regular.ttf);
+  font-weight: 500;
+}
+
+.temp {
+  background-color: #000117dc;
+  padding-top: 51px;
+}
+
+.headerMenu {
+  margin-left: 80px;
+  margin-right: 83px;
+  display: flex;
+  justify-content: center;
+  margin-left: 202px;
+  margin-right: 276px;
+  gap: 168px;
+  background-color: #eb91b2dc;
+}
+
+.menu {
+  display: flex;
+  gap: 50px;
+}
+
+.logo {
+  display: block;
+  font-family: Poppins-Bold;
+  font-size: 40px;
+  color: white;
+}
+
+.menu li {
+  list-style-type: none;
+  font-family: Poppins-Regular;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.navigationLink {
+  color: white;
+  text-decoration: none;
+}
+
+.navigationLink:hover {
+  color: white;
+}
+
+.navigationLink:active {
+  color: white;
+}
+
+.changeThemeButton {
+  background: linear-gradient(108.5deg, #3A5E72 4.95%, #5C93B1 132.43%);
+  box-shadow: inset 7px 7px 10px rgba(79, 136, 167, 0.3);
+  border-radius: 20px;
+  padding: 35px 20px;
+}
+
+.changeThemeSpan {
+  font-family: Poppins-Regular;
+  font-size: 25px;
+}
+
+
+
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +234,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

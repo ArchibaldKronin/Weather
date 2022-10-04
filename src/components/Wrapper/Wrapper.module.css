@@ -1,0 +1,57 @@
+.wrapper {
+    width: 1440px;
+    height: 1280px;
+    position: absolute;
+    background-color: #1B262C;
+    z-index: -100;
+}
+
+.ellipse1 {
+    position: absolute;
+    width: 571px;
+    height: 571px;
+    left: -351px;
+    top: -234px;
+    border-color: wheat;
+    
+    background: radial-gradient(87.48% 87.48% at 49.91% 49.91%, rgba(77, 125, 152, 0.3) 0%, rgba(73, 101, 117, 0) 100%);
+    filter: blur(60px);
+}
+
+.ellipse2 {
+    position: absolute;
+    width: 571px;
+    height: 571px;
+    left: -395px;
+    top: 237px;
+
+    background: radial-gradient(87.48% 87.48% at 49.91% 49.91%, rgba(77, 125, 152, 0.3) 0%, rgba(73, 101, 117, 0) 100%);
+    filter: blur(60px);
+}
+
+.ellipse3 {
+    position: absolute;
+    width: 634px;
+    height: 749px;
+    left: 806px;
+    top: -560px;
+
+    background: rgba(77, 125, 152, 0.2);
+    filter: blur(70px);
+}
+
+.ellipse4 {
+    position: absolute;
+    width: 173px;
+    height: 749px;
+    left: 1267px;
+    top: 112px;
+
+    background: rgba(77, 125, 152, 0.2);
+    filter: blur(70px);
+}
+
+.linesGroup {
+    position: absolute;
+    z-index: -1;
+}
