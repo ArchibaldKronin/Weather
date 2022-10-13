@@ -2,17 +2,16 @@
     font-family: Poppins-Regular;
     src: url(../../fonts/Poppins-Regular.ttf);
     font-weight: 500;
-  }
+}
 
 .contactsContainer {
     padding: 0 80px;
     text-align: center;
     height: 105px;
-    margin-top: 75px;
+    /* margin-top: 75px; */
 }
 
 .contactsBlockHeader {
-    /* display: block; */
     font-family: Poppins-Regular;
     color: white;
     font-size: 40px;

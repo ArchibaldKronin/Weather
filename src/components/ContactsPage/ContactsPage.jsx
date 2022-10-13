@@ -16,7 +16,7 @@ export const ContactsPage = () => {
     return (
         <div className={styles.contactsContainer}>
             <h3 className={styles.contactsBlockHeader}>
-            Контакты
+            Contacts
             </h3>
             <ul className={styles.contactsList}>
                 <li>Archibald Joseph Cronin</li>

@@ -1,0 +1,5 @@
+.weatherContainer {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+}

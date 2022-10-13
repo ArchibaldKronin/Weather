@@ -1,9 +1,10 @@
 import React from "react";
+import styles from './Weather.module.css';
 
 export const Weather = ({ data }) => {
 
     return (
-        <div>
+        <div className={styles.weatherContainer}>
             {data.map(interval => {
                 return (
                     <div key={interval.startTime}>

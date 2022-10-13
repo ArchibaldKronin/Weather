@@ -3,7 +3,7 @@ import styles from "./ErrorPage.module.css"
 
 export const ErrorPage = ({ errorObj }) => {
     return (
-        <div className="">
+        <div className={styles.errorFont}>
             {errorObj}
         </div>
     )

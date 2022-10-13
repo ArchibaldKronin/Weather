@@ -67,7 +67,7 @@ function App() {
           <main>
             <div className='sloganWrapper'>
               <div className='slogan'>
-                <p>Seeing the weather of the whole Moscow with <span className='homePage'>Dark Weather!</span></p>
+                <p>Seeing the weather of the whole Moscow with <span className='homePage'>Weather App!</span></p>
               </div>
             </div>
             <Routes>
