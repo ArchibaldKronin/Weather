@@ -1,5 +1,19 @@
 .weatherContainer {
     display: flex;
-    justify-content: center;
-    gap: 150px;
+    gap: 107px;
+    overflow-x: auto;
+
+    padding-bottom: 10px;
+}
+
+.weatherContainer::-webkit-scrollbar {
+    height: 20px;
+    background-color: #1B262C;
+    border-radius: 20px;
+}
+
+.weatherContainer::-webkit-scrollbar-thumb {
+    height: 10px;
+    background-color: #24353E;
+    border-radius: 20px;
 }

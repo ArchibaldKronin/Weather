@@ -67,6 +67,10 @@
     border-radius: 15px;
 }
 
+.buttons:hover {
+    cursor: pointer;
+}
+
 .buttonText {
     font-family: Poppins-Light;
     font-size: 23px;
@@ -74,7 +78,5 @@
 }
 
 .contentConteiner {
-    /* display: flex;
-    justify-content: center; */
     width: 100%;
 }
